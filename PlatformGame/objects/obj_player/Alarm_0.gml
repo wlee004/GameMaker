@@ -1,0 +1,3 @@
+/// @description CHANGE BACK TO IDEL STATE
+
+state = PLAYERSTATE.IDLE;
