@@ -28,7 +28,7 @@ vsp = clamp(vsp, -vsp_max, vsp_max);
 
 /*** WALL COLLISION ********************************************************************/
 
-// HORIZONTAL COLLISION
+// HORIZONTAL COLLISION FOR WALL
 if(place_meeting(x+hsp,y,obj_wall))
 {
 	while(!place_meeting(x+sign(hsp),y,obj_wall))
@@ -39,7 +39,7 @@ if(place_meeting(x+hsp,y,obj_wall))
 }
 x += hsp;
 
-// VERTICAL COLLISION
+// VERTICAL COLLISION FOR WALL
 if(place_meeting(x,y+vsp,obj_wall))
 {
 	while(!place_meeting(x,y+sign(vsp),obj_wall))
