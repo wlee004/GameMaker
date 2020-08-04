@@ -2,6 +2,7 @@
 
 // PLAYER STATUS 
 onground = false;
+onplatform = false;
 onwall = 0;
 
 // PLAYER MOVEMENT VARIABLES
