@@ -21,3 +21,8 @@ if (key_dash)
 	state = PLAYERSTATE.DASH;
 	alarm[0] = 8;
 }
+
+if(!onground && onwall != 0)
+{
+	state = PLAYERSTATE.WALLJUMP
+}
