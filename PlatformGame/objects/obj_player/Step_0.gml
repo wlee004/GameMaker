@@ -60,3 +60,5 @@ switch (state)
 	case PLAYERSTATE.WALLJUMP: scr_player_walljump(); break;
 	case PLAYERSTATE.DASH: scr_player_dash(); break;
 }
+
+show_debug_message(grav)

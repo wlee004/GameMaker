@@ -25,11 +25,11 @@ dash_delay = 0;
 dust = 0;
 walljumpdelay = 0;
 walljumpdelay_max = 3;
-grav_wall = 0.03;
+grav_wall = 0.1;
 hsp_wjump = 2; 
 vsp_wjump = -5;
 vsp_max_wall = 3;
-vsp_max = 20;
+vsp_max = 10;
 
 // PLAYER STATE
 state = PLAYERSTATE.IDLE;
