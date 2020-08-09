@@ -1,7 +1,7 @@
 // wall jump sprite 
 
-if (!onground && onwall != 0)
-{
+//if (!onground && onwall != 0)
+//{
 	// change gravity
 	grav = grav_wall
 	//sprite_index = spr_walljump
@@ -14,20 +14,17 @@ if (!onground && onwall != 0)
 		other.dust = 0;
 		hspeed = -other.onwall*0.5;
 	}
-}
-
-if (key_jump)
-{
-	hsp = -onwall * hsp_wjump;
-	vsp = vsp_wjump;
-}
+//}
 
 
-if(onground)
+
+hsp = -onwall * hsp_wjump;
+vsp = vsp_wjump;
+
+
+
+if(onground || onwall == 0)
 {
 	state = PLAYERSTATE.IDLE;
 }
-else if(!onground && onwall == 0)
-{
-	state = PLAYERSTATE.JUMP;
-}
+
