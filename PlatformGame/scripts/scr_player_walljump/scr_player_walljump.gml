@@ -23,6 +23,11 @@ if (key_jump)
 }
 
 
-if(onground){
+if(onground)
+{
 	state = PLAYERSTATE.IDLE;
+}
+else if(!onground && onwall == 0)
+{
+	state = PLAYERSTATE.JUMP;
 }
