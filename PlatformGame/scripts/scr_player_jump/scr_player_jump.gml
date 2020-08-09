@@ -1,6 +1,6 @@
 //sprite_index = spr_jump;
 
-if(onground)
+if(onground || onplatform)
 {
 	vsp = jumpvalue;
 	state = PLAYERSTATE.IDLE;

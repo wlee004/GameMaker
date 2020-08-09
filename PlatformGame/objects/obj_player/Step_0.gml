@@ -29,12 +29,22 @@ if(hsp != 0)
 vsp += grav;
 vsp = clamp(vsp, -vsp_max, vsp_max);
 
-/*** WALL COLLISION ********************************************************************/
+/*** WALL/PLATFORM COLLISION ********************************************************************/
 
 // HORIZONTAL COLLISION FOR WALL
 if(place_meeting(x+hsp,y,obj_wall))
 {
 	while(!place_meeting(x+sign(hsp),y,obj_wall))
+	{
+		x += sign(hsp);
+	}
+	hsp = 0;
+}
+
+// HORIZONTAL COLLISION FOR PLATFORM
+if(place_meeting(x+hsp,y,obj_platform))
+{
+	while(!place_meeting(x+sign(hsp),y,obj_platform))
 	{
 		x += sign(hsp);
 	}
@@ -53,21 +63,6 @@ if(place_meeting(x,y+vsp,obj_wall))
 	vsp = 0;
 }
 
-y += vsp;
-
-/*** PLATFORM COLLISION ********************************************************************/
-
-// HORIZONTAL COLLISION FOR PLATFORM
-if(place_meeting(x+hsp,y,obj_platform))
-{
-	while(!place_meeting(x+sign(hsp),y,obj_platform))
-	{
-		x += sign(hsp);
-	}
-	hsp = 0;
-}
-
-
 // VERTICAL COLLISION FOR PLATFORM
 if(place_meeting(x,y+vsp,obj_platform))
 {
@@ -77,6 +72,9 @@ if(place_meeting(x,y+vsp,obj_platform))
 	}
 	vsp = 0;
 }
+
+y += vsp;
+
 
 /*** STATE CHANGES ********************************************************************/
 
