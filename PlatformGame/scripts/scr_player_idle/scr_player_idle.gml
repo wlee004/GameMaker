@@ -1,7 +1,7 @@
 /*** MOVEMENT ***************************************************************************/
 
 grav = defgrav;
-if(onwall != 0 && !onground) grav = grav_wall;
+//if(onwall != 0 && !onground) grav = grav_wall;
 
 if(onground) sprite_index = spr_player;
 else if(onplatform) sprite_index = spr_player;
@@ -19,12 +19,11 @@ if((key_jump && onground) || (key_jump && onplatform))
 	state = PLAYERSTATE.JUMP;
 }
 
-if (key_dash)
+else if (key_dash)
 {
 	state = PLAYERSTATE.DASH;
 	alarm[0] = 8;
 }
-if (onwall != 0) && (!onground) && (key_jump)
-{
-	state = PLAYERSTATE.WALLJUMP;
-}
+
+
+

@@ -9,6 +9,7 @@ if(onground || onplatform)
 if(!onground) && (onwall != 0)
 {
 	state = PLAYERSTATE.WALLJUMP;
+	//alarm[0] = 8;
 }
 
 
