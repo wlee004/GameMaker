@@ -11,6 +11,9 @@ key_dash = keyboard_check_pressed(ord("E"));
 // CHECK IF PLAYER IS ON GROUND
 onground = place_meeting(x,y+1,obj_wall);
 
+// CHECK IF PLAYER IS ON PLATFORM
+onplatform = place_meeting(x,y+1,obj_platform);
+
 // CHECK IF PLAYER IS ON WALL (-1 left wall) (+1 right wall) (0 not on wall)
 onwall = place_meeting(x+1,y,obj_wall) - place_meeting(x-1,y,obj_wall);
 
@@ -26,7 +29,7 @@ if(hsp != 0)
 vsp += grav;
 vsp = clamp(vsp, -vsp_max, vsp_max);
 
-/*** WALL COLLISION ********************************************************************/
+/*** WALL/PLATFORM COLLISION ********************************************************************/
 
 // HORIZONTAL COLLISION FOR WALL
 if(place_meeting(x+hsp,y,obj_wall))
@@ -37,6 +40,17 @@ if(place_meeting(x+hsp,y,obj_wall))
 	}
 	hsp = 0;
 }
+
+// HORIZONTAL COLLISION FOR PLATFORM
+if(place_meeting(x+hsp,y,obj_platform))
+{
+	while(!place_meeting(x+sign(hsp),y,obj_platform))
+	{
+		x += sign(hsp);
+	}
+	hsp = 0;
+}
+
 x += hsp;
 
 // VERTICAL COLLISION FOR WALL
@@ -48,7 +62,19 @@ if(place_meeting(x,y+vsp,obj_wall))
 	}
 	vsp = 0;
 }
+
+// VERTICAL COLLISION FOR PLATFORM
+if(place_meeting(x,y+vsp,obj_platform))
+{
+	while(!place_meeting(x,y+sign(vsp),obj_platform))
+	{
+		y += sign(vsp);
+	}
+	vsp = 0;
+}
+
 y += vsp;
+
 
 /*** STATE CHANGES ********************************************************************/
 

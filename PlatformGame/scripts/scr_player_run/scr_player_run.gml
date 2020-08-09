@@ -1,4 +1,4 @@
-if(onground) sprite_index = spr_run;
+if(onground) || (onplatform) sprite_index = spr_run;
 else sprite_index = spr_jump;
 
 // HORIZONTAL MOVEMENT 
@@ -30,7 +30,7 @@ if(hsp == 0)
 {
 	state = PLAYERSTATE.IDLE;
 }
-else if(key_jump && onground)
+else if((key_jump && onground) || (key_jump && onplatform))
 {
 	state = PLAYERSTATE.JUMP;
 }
