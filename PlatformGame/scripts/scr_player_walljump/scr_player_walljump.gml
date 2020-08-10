@@ -17,7 +17,6 @@ if (!onground && onwall != 0)
 }
 
 
-
 hsp = -onwall * hsp_wjump;
 vsp = vsp_wjump;
 
